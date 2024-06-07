@@ -4,6 +4,7 @@ import com.example.ResponseEntity.Service.EmployeeService;
 import com.example.ResponseEntity.mode.Employee;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -33,6 +34,11 @@ public class EmployeeController {
             return new ResponseEntity<>(HttpStatus.CONFLICT);
 
         }
+    }
+    @GetMapping("/wel")
+    @Profile("wel")
+  public String wel() {
+        return "Hai everyone";
     }
     @GetMapping("view/{id}")
     public ResponseEntity<Employee>getByiD(@PathVariable("id")long id){
